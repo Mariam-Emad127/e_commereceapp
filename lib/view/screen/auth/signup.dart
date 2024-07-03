@@ -1,5 +1,5 @@
  import 'package:e_commereceapp/controller/auth/signup_controller.dart';
-import 'package:e_commereceapp/core/class/constants/color.dart';
+ 
 import 'package:e_commereceapp/view/widget/auth/custombuttonauth.dart';
 import 'package:e_commereceapp/view/widget/auth/customtextbodyauth.dart';
 import 'package:e_commereceapp/view/widget/auth/customtextformauth.dart';
@@ -8,77 +8,103 @@ import 'package:e_commereceapp/view/widget/auth/textsignup.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../core/constants/color.dart';
+import '../../../core/functions/validinput.dart';
+
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    SignUpControllerImp controller=Get.put(SignUpControllerImp());
-        return Scaffold(
+    Get.lazyPut(() => SignUpControllerImp());
+ return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: AppColor.backgroundcolor,
         elevation: 0.0,
-        title: Text('Sign Up',
+        title: Text('17'.tr,
             style: Theme.of(context)
                 .textTheme
                 .headline1!
                 .copyWith(color: AppColor.grey)),
       ),
-      body: Container(
-        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-        child: ListView(children: [
-          const SizedBox(height: 20),
-          const CustomTextTitleAuth(text: "Welcome Back"),
-          const SizedBox(height: 10),
-          const CustomTextBodyAuth(
-              text:
-                  "Sign Up With Your Email And Password OR Continue With Social Media"),
-          const SizedBox(height: 15),
-          CustonTextFormAuth(
-            mycontroller: controller.username,
-            hinttext: "Enter Your Username",
-            iconData: Icons.person_outline,
-            labeltext: "Username",
-            // mycontroller: ,
-          ),
-          CustonTextFormAuth(
-            mycontroller: controller.email,
-            hinttext: "Enter Your Email",
-            iconData: Icons.email_outlined,
-            labeltext: "Email",
-            // mycontroller: ,
-          ),
-          CustonTextFormAuth(
-            mycontroller: controller.phone,
-            hinttext: "Enter Your Phone",
-            iconData: Icons.phone_android_outlined,
-            labeltext: "Phone",
-            // mycontroller: ,
-          ),
-          CustonTextFormAuth(
-            mycontroller: controller.password,
-            hinttext: "Enter Your Password",
-            iconData: Icons.lock_outline,
-            labeltext: "Password",
-            // mycontroller: ,
-          ),
-          const Text(
-            "Forget Password",
-            textAlign: TextAlign.end,
-          ),
-          CustomButtomAuth(text: "Sign Up", onPressed: () {}),
-          const SizedBox(height: 40),
-          CustomTextSignUpOrSignIn(
-            textone: " have an account ? ",
-            texttwo: " SignIn ",
-            onTap: () {
-              controller.goToSignIn();
-            },
-          ),
-        ]),
-      ),
+      body:  
+      GetBuilder<SignUpControllerImp>(builder:(controller)=>
+      Container(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+                child: Form(
+               //   key: controller.formstate,
+                  child: ListView(children: [
+                    const SizedBox(height: 20),
+                    CustomTextTitleAuth(text: "10".tr),
+                    const SizedBox(height: 10),
+                    CustomTextBodyAuth(text: "24".tr),
+                    const SizedBox(height: 15),
+                    CustomTextFormAuth(
+                      isNumber: false,
+
+                      valid: (val) {
+                        return validInput(val!, 3, 20, "username");
+                      },
+                      mycontroller: controller.username,
+                      hinttext: "23".tr,
+                      iconData: Icons.person_outline,
+                      labeltext: "20".tr,
+                      // mycontroller: ,
+                    ),
+                    CustomTextFormAuth(
+                      isNumber: false,
+
+                      valid: (val) {
+                        //return validInput(val!, 3, 40, "email");
+                      },
+                      mycontroller: controller.email,
+                      hinttext: "12".tr,
+                      iconData: Icons.email_outlined,
+                      labeltext: "18".tr,
+                      // mycontroller: ,
+                    ),
+                    CustomTextFormAuth(
+                      isNumber: true,
+                      valid: (val) {
+                    return validInput(val!, 7, 11, "phone");
+                      },
+                      mycontroller: controller.phone,
+                      hinttext: "22".tr,
+                      iconData: Icons.phone_android_outlined,
+                      labeltext: "21".tr,
+                      // mycontroller: ,
+                    ),
+                    CustomTextFormAuth(
+                     isNumber: false,
+
+                      valid: (val) {
+                      return validInput(val!, 3, 30, "password");
+                      },
+                      mycontroller: controller.password,
+                      hinttext: "13".tr,
+                      iconData: Icons.lock_outline,
+                      labeltext: "19".tr,
+                      // mycontroller: ,
+                    ),
+                    CustomButtomAuth(
+                        text: "17".tr,
+                        onPressed: () {
+                          controller.signUp();
+                        }),
+                    const SizedBox(height: 40),
+                    CustomTextSignUpOrSignIn(
+                      textone: "25".tr,
+                      texttwo: "26".tr,
+                      onTap: () {
+                        controller.goToSignIn();
+                      },
+                    ),
+                  ]),
+                ),
+              ) ,
+    )
     );
- 
   }
 }

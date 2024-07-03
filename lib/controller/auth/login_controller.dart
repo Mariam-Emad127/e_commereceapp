@@ -1,4 +1,4 @@
-import 'package:e_commereceapp/core/class/constants/routes.dart';
+ import 'package:e_commereceapp/core/constants/routes.dart';
  import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,13 +12,27 @@ goToForgetPassword();
 
 }
 class LoginControllerImpl extends LoginController{
+  GlobalKey<FormState>formstate=GlobalKey<FormState>();
   late TextEditingController email;
   late TextEditingController password;
+  bool isshowpassword = true;
+
+  showPassword() {
+    isshowpassword = isshowpassword == true ? false : true;
+    update();
+  }
   @override
   login() {
-    
+    var formdata=formstate.currentState;
+    /* if(formdata!.validate()){
 
+         print("Valid");
+    } else {
+      print("Not Valid");
+    }
+    } */
   }
+  
   @override
   void onInit() {
   email=TextEditingController();
@@ -26,7 +40,7 @@ class LoginControllerImpl extends LoginController{
   }
   @override
   goToSignUP() {
- Get.toNamed(AppRoute.signin );  
+ Get.offAllNamed(AppRoute.signin );  
    }
 
      @override

@@ -1,24 +1,23 @@
  import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 import '../../core/constants/routes.dart';
+ 
 
-abstract class ForgetPasswordController extends GetxController {
+abstract class CheckEmailController extends GetxController {
   checkemail();
-  goToVerfiyCode();
+  goToSuccessSignUp();
 }
 
-class ForgetPasswordControllerImp extends ForgetPasswordController {
+class CheckEmailControllerImp extends CheckEmailController { 
   late TextEditingController email; 
 
   @override
   checkemail() {}
 
   @override
-  goToVerfiyCode() {
-    Get.offNamed(AppRoute.verfiyCode);
+  goToSuccessSignUp() {
+    Get.offNamed(AppRoute.successSignUp);
   }
 
   @override
@@ -32,4 +31,4 @@ class ForgetPasswordControllerImp extends ForgetPasswordController {
     email.dispose(); 
     super.dispose();
   }
- }
+}

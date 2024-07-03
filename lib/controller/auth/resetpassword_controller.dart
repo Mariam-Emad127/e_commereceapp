@@ -1,7 +1,8 @@
 
-import 'package:e_commereceapp/core/class/constants/routes.dart';
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../core/constants/routes.dart';
 
 abstract class ResetPasswordController extends GetxController {
   resetpassword();

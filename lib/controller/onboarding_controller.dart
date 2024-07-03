@@ -1,4 +1,6 @@
-import 'package:e_commereceapp/core/class/constants/routes.dart';
+ 
+import 'package:e_commereceapp/core/constants/routes.dart';
+import 'package:e_commereceapp/core/services/services.dart';
 import 'package:e_commereceapp/data/datasource/static/static.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,7 +8,6 @@ import 'package:get/get.dart';
 abstract class OnBoardingController extends GetxController  {
   
   next();
-
   onPageChanged(int index);
 
 }  
@@ -14,6 +15,8 @@ abstract class OnBoardingController extends GetxController  {
 class OnBoardingControllerImpl extends OnBoardingController{
   
   late PageController pageController;
+//MyServices myServices=Get.put(MyServices());
+    MyServices myServices = Get.find() ; 
   int currentpage=0;
   @override
   next() {
@@ -23,6 +26,8 @@ class OnBoardingControllerImpl extends OnBoardingController{
    curve: Curves.easeInOut);
   
    if (currentpage > onBoardingList.length - 1) {
+       myServices.sharedPrefrance.setString("onboarding", "1") ; 
+
        Get.offAllNamed(AppRoute.login) ; 
     } else {
       pageController.animateToPage(currentpage,

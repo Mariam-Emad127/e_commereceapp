@@ -1,8 +1,9 @@
-import 'package:e_commereceapp/core/class/constants/routes.dart';
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+
+import '../../core/constants/routes.dart';
 
 abstract class SignUpController extends GetxController {
   signUp();
@@ -14,9 +15,19 @@ class SignUpControllerImp extends SignUpController {
   late TextEditingController email;
   late TextEditingController phone;
   late TextEditingController password;
-
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
   @override
-  signUp() {}
+  signUp() {
+    var formdata = formstate.currentState;
+   // if (formdata!.validate()) {
+      if (formdata != null &&formstate.currentState!.validate()) {
+     //if (formdata != null && formdata.validate()) {
+      Get.offNamed(AppRoute.verfiyCodeSignUp);
+      //Get.delete<SignUpControllerImp>();
+    } else {
+      print("Not Valid");
+    }
+  }
 
   @override
   goToSignIn() {
@@ -25,8 +36,8 @@ class SignUpControllerImp extends SignUpController {
 
   @override
   void onInit() {
-    username = TextEditingController() ; 
-    phone = TextEditingController() ; 
+    username = TextEditingController();
+    phone = TextEditingController();
     email = TextEditingController();
     password = TextEditingController();
     super.onInit();

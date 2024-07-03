@@ -2,19 +2,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../core/constants/color.dart';
+import '../../../../core/constants/color.dart';
 
-class SuccessSignUp extends StatelessWidget {
-  const SuccessSignUp({super.key});
+class SuccessResetPassword extends StatelessWidget {
+  const SuccessResetPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
-  return Scaffold(
+ return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: AppColor.backgroundcolor,
         elevation: 0.0,
-        title: Text('32'.tr,
+        title: Text('Success',
             style: Theme.of(context)
                 .textTheme
                 .headline1!
@@ -29,12 +29,8 @@ class SuccessSignUp extends StatelessWidget {
             size: 200,
             color: AppColor.primaryColor,
           )),
-          Text("37".tr,
-              style: Theme.of(context)
-                  .textTheme
-                  .headline1!
-                  .copyWith(fontSize: 30)),
-          Text("38".tr),
+          Text("37".tr , style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: 30)),
+          Text("36".tr),
           const Spacer(),
           SizedBox(
             width: double.infinity,
@@ -44,7 +40,7 @@ class SuccessSignUp extends StatelessWidget {
                   // controller.signUp();
                 }),
           ),
-          const SizedBox(height: 30)
+          SizedBox(height: 30)
         ]),
       ),
     );

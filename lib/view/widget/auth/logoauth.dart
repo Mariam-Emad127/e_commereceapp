@@ -1,5 +1,6 @@
-import 'package:e_commereceapp/core/class/constants/imgaeasset.dart';
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
+
+import '../../../core/constants/imgaeasset.dart';
 
 class LogoAuth extends StatelessWidget {
   const LogoAuth({Key? key}) : super(key: key);

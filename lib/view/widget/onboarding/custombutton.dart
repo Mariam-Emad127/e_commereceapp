@@ -1,7 +1,8 @@
 import 'package:e_commereceapp/controller/onboarding_controller.dart';
-import 'package:e_commereceapp/core/class/constants/color.dart';
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../core/constants/color.dart';
 
 class CustomButtonOnBoarding extends GetView<OnBoardingControllerImpl> {
   const CustomButtonOnBoarding({Key? key}) : super(key: key);

@@ -1,11 +1,12 @@
 import 'package:e_commereceapp/controller/auth/verifycode_controller.dart';
-import 'package:e_commereceapp/core/class/constants/color.dart';
-import 'package:e_commereceapp/view/widget/auth/customtextbodyauth.dart';
+ import 'package:e_commereceapp/view/widget/auth/customtextbodyauth.dart';
 import 'package:e_commereceapp/view/widget/auth/customtexttitleauth.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../../core/constants/color.dart';
 
 class VerfiyCode extends StatelessWidget {
   const VerfiyCode({super.key});

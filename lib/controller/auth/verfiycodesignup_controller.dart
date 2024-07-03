@@ -2,12 +2,12 @@
 
 import '../../core/constants/routes.dart';
 
-abstract class VerifyCodeController extends GetxController {
+abstract class VerifyCodeSignUpController extends GetxController {
   checkCode();
-  goToResetPassword();
+  goToSuccessSignUp();
 }
 
-class VerifyCodeControllerImp extends VerifyCodeController {  
+class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {  
 
   late String verifycode  ; 
 
@@ -15,8 +15,8 @@ class VerifyCodeControllerImp extends VerifyCodeController {
   checkCode() {}
 
   @override
-  goToResetPassword() {
-    Get.offNamed(AppRoute.resetPassword);
+  goToSuccessSignUp() {
+    Get.offNamed(AppRoute.successSignUp);
   }
 
   @override

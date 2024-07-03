@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 
-class CustonTextFormAuth extends StatelessWidget {
+class CustomTextFormAuth extends StatelessWidget {
   final String hinttext;
   final String labeltext;
   final IconData iconData;
   final TextEditingController? mycontroller;
-
-  const CustonTextFormAuth(
+  final String ?Function (String?)valid;
+ final bool isNumber;
+  final bool? obscureText;
+  final void Function()? onTapIcon;
+  const CustomTextFormAuth(
       {Key? key,
       required this.hinttext,
       required this.labeltext,
       required this.iconData,
-      this.mycontroller})
+      this.mycontroller, required this.valid, required this.isNumber, this.obscureText, this.onTapIcon})
       : super(key: key);
 
   @override
@@ -20,6 +23,11 @@ class CustonTextFormAuth extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 20),
       child: TextFormField(
         controller: mycontroller,
+        keyboardType: isNumber  ? const TextInputType.numberWithOptions(decimal: true)
+            : TextInputType.text,
+//obscureText: obscureText==null||obscureText==false?false:true,
+ obscureText: obscureText == null || obscureText == false  ? false : true,
+
         decoration: InputDecoration(
             hintText: hinttext,
             hintStyle: const TextStyle(fontSize: 14),
@@ -29,7 +37,8 @@ class CustonTextFormAuth extends StatelessWidget {
             label: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 9),
                 child: Text(labeltext)),
-            suffixIcon: Icon(iconData),
+            suffixIcon: InkWell(child: Icon(iconData), onTap: onTapIcon),
+            // Icon(iconData),
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(30))),
       ),

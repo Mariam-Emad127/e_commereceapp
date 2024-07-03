@@ -1,8 +1,10 @@
- import 'package:e_commereceapp/core/class/constants/routes.dart';
-import 'package:e_commereceapp/core/class/localization/changelocal.dart';
+ 
 import 'package:e_commereceapp/view/widget/language/custombuttomlang.dart';
 import 'package:flutter/material.dart';
  import 'package:get/get.dart';
+
+import '../../core/constants/routes.dart';
+import '../../core/localization/changelocal.dart';
 
 class Language extends GetView<LocaleController> {
   const Language({super.key});
@@ -27,7 +29,7 @@ class Language extends GetView<LocaleController> {
                   textbutton: "En",
                   onPressed: () {
                     controller.changeLang("en");
-                    Get.toNamed(AppRoute.login) ; 
+                    Get.toNamed(AppRoute.onBoarding) ; 
                   }),
             ]    
           )

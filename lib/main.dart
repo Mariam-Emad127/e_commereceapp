@@ -1,11 +1,12 @@
-import 'package:e_commereceapp/core/class/constants/color.dart';
-import 'package:e_commereceapp/core/class/localization/changelocal.dart';
-import 'package:e_commereceapp/core/class/localization/translation.dart';
-import 'package:e_commereceapp/core/class/services/services.dart';
+ 
+import 'package:e_commereceapp/biniding/intialbindings.dart';
 import 'package:e_commereceapp/route.dart';
-import 'package:e_commereceapp/view/screen/language.dart';
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'core/localization/changelocal.dart';
+import 'core/localization/translation.dart';
+import 'core/services/services.dart';
 
 void main()async {
     WidgetsFlutterBinding.ensureInitialized();
@@ -24,20 +25,11 @@ class MyApp extends GetView<LocaleController> {
       locale: controller.language,
     translations: MyTranslation(),
       title: 'Flutter Demo',
-    theme: ThemeData(
-        fontFamily: "PlayfairDisplay",
-        textTheme: const TextTheme(
-            headline1: TextStyle(fontWeight: FontWeight.bold, fontSize: 20 , color: AppColor.black),
-            bodyText1: TextStyle(
-                height: 2,
-                color: AppColor.grey,
-                fontWeight: FontWeight.bold,
-                fontSize: 17)),
-        primarySwatch: Colors.blue,
-      ),
-      home: const Language(),
-            routes: route,
-
+    theme: controller.themeData,
+    initialBinding: InitialBindings(),
+    //  home: const Language(),
+        //    routes: route,
+getPages: routes,
     );
   }
 }
